@@ -1,0 +1,32 @@
+# Define an interface for the object to be created
+class trees:
+    def kindoftrees(self):
+        pass
+
+# Implement different types of trees that implement the trees interface
+class nara(trees):
+    def kindoftrees(self):
+        print("nara")
+
+class palakata(trees):
+    def kindoftrees(self):
+        print("palakata")
+
+# Define a factory class that creates trees based on some input
+class treesFactory:
+    def create_trees(self, trees_type):
+        if trees_type == "nara":
+            return nara()
+        elif trees_type == "palakata":
+            return palakata()
+        else:
+            raise ValueError(f"Invalid trees type: {trees_type}")
+
+# Client code that uses the factory to create trees
+factory = treesFactory()
+
+nara = factory.create_trees("nara")
+nara.kindoftrees()
+
+palakata = factory.create_trees("palakata")
+palakata.kindoftrees()
